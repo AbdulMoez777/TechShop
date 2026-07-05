@@ -13,7 +13,7 @@ const App = () => {
     <>
 
       <Router>
-        <div className="min-h-screen bg-gray-500 text-white font-sans">
+        <div className="min-h-screen bg-gray-900 text-white font-sans">
           <Navbar />
           <Routes>
             <Route path="/" element={<ProductList />} />
