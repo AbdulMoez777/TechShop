@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
 
 function ProductCard({ product }) {
+  const { addToCart } = useCart();
   return (
     <>
       <div className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden flex flex-col h-full transition duration-500 transform border border-gray-800 group hover:scale-[1.03] hover:shadow-orange-900/50 hover:border-orange-500">
@@ -37,7 +39,10 @@ function ProductCard({ product }) {
             </span>
           </div>
 
-          <button className="bg-orange-600 mx-auto w-full py-3 text-white font-bold rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 transform hover:ring-3 hover:ring-orange-500/50 tracking-wider">
+          <button
+            onClick={() => addToCart(product)}
+            className="bg-orange-600 mx-auto w-full py-3 text-white font-bold rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 transform hover:ring-3 hover:ring-orange-500/50 tracking-wider"
+          >
             <ShoppingCart />
             <span>Add to Cart</span>
           </button>

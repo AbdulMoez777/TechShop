@@ -6,7 +6,7 @@ import { initialProducts } from "../data/product";
 export const CartProvider = (props) => {
   const products = initialProducts;
 
-  const [cart, setCart] = uCeState([]);
+  const [cart, setCart] = useState([]);
 
   //   Add item into the Cart
   const addToCart = (product) => {

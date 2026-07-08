@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { initialProducts } from "../data/product";
-
 import { ShoppingCart, ChevronLeft, Tag, Zap } from "lucide-react";
 
 import { useCart } from "../context/CartContext";
 
 const ProductDetail = () => {
-  // console.log("data from id = ",useParams())
+  
 
   const { id } = useParams();
   const [product, setproduct] = useState();
