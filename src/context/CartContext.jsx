@@ -43,6 +43,9 @@ export const CartProvider = (props) => {
     });
   };
 
+  //   For Clear Cart 
+const clearCart = () => setCart([]);
+
 
   
   return (
