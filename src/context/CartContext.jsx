@@ -24,11 +24,27 @@ export const CartProvider = (props) => {
     });
   };
 
+  //   Remove Item from Cart
+  const removeFromCart = (productId, removeAll = false) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === productId);
+
+      if (!existingItem) return prevCart;
+
+      if (removeAll || existingItem.quantity === 1) {
+        return prevCart.filter((item) => item.id !== productId);
+      } else {
+        return prevCart.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item,
+        );
+      }
+    });
+  };
+
+
   
-
-
-
-
   return (
     <CartContext.Provider value={{ products }}>
       {props.children}
