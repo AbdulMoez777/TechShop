@@ -52,9 +52,14 @@ export const CartProvider = (props) => {
     [cart],
   );
 
- 
+  //Cart Total Price
+  const cartTotal = useMemo(
+    () => cart.reduce((total, item) => total + item.price * item.quantity, 0),
+    [cart],
+  );
+
   return (
-    <CartContext.Provider value={{ products }}>
+    <CartContext.Provider value={{ products, cart, addToCart, removeFromCart, clearCart, cartCount, cartTotal }}>
       {props.children}
     </CartContext.Provider>
   );
